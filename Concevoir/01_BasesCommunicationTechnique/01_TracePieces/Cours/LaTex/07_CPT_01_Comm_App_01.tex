@@ -1,0 +1,284 @@
+\documentclass[10pt]{article}
+\input{style/coursHeadings}
+\input{style/programHeadings}
+\input{style/macros_SII}
+\input{style/macros_Titres}
+\input{style/macros_Frames}
+
+%Si le boolen xp est vrai : compilation pour xabi
+%Sinon compilation Damien
+\newboolean{xp}
+\setboolean{xp}{true}
+
+\newboolean{prof}
+\setboolean{prof}{false}
+
+\newboolean{td}
+\setboolean{td}{true}
+
+\usepackage[%
+    pdftitle={},
+    pdfauthor={Xavier Pessoles},
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=magenta]{hyperref}
+
+
+\def\discipline{Sciences Industrielles de l'Ingénieur}
+\def\xxtitre{\ifthenelse{\boolean{xp}}{
+CI 1 : Étude des systèmes pluritechniques et multiphysiques -- Initiation à l'Ingéniérie Système}{}}
+
+\def\xxsoustitre{\ifthenelse{\boolean{xp}}{
+Chapitre 1 -- Introduction à l'Ingénérie Systèmes}{
+Partie  -- }}
+
+\def\xxauteur{\ifthenelse{\boolean{xp}}{
+Xavier \textsc{Pessoles}}{}}
+
+\def\xxpied{\ifthenelse{\boolean{xp}}{
+CI 1 : IS \\
+Ch. 1 : Introduction à l'IS -- Cours TD}{
+\xxtitre}}
+
+\def\xxcathegorie{\ifthenelse{\boolean{xp}}{
+2013 -- 2014 \\
+Xavier \textsc{Pessoles}}{
+Informatique - Cours}}
+
+
+
+
+
+%---------------------------------------------------------------------------
+
+
+\begin{document}
+
+\ifthenelse{\boolean{xp}}{\input{style/enteteXP}}{\input{style/enteteDI}}
+
+
+
+ \renewcommand{\baselinestretch}{1.2}
+\setlength{\parskip}{2ex plus 0.5ex minus 0.2ex}
+
+
+\begin{comp}
+\noindent \textbf{Analyser :} 
+\begin{itemize}
+\item \textit{A1} : identifier le besoin et définir les exigences du système;
+\item \textit{A2} : définir les frontières de l'analyse;
+\item \textit{A3} : conduire l'analyse (\textit{A3--C3}).
+\end{itemize}
+
+\end{comp}
+
+\section*{Machine de rééducation Sys-Reeduc}
+
+\begin{flushright}
+\textit{D'après concours CCP -- MP -- 2013.}
+\end{flushright}
+
+%\ifprof
+%\else
+
+
+\begin{minipage}[c]{.7\linewidth}
+Fruit d'un projet régional entre le CReSTIC\footnote{Centre de Recherche en Sciences et Technologies de l'Information et de la Communication.} de Reims et le CRITT-MDTS\footnote{Centre Régional d'Innovation et de Transfert de Technologie.} de Charleville-Mézières, le Sys-Reeduc est un système permettant d'aider à la rééducation des membres inférieurs. 
+\begin{obj} 
+Le but de ce TD est d'analyser et de comprendre le fonctionnement du Sys-Reeduc.
+\end{obj}
+
+\end{minipage} \hfill
+\begin{minipage}[c]{.27\linewidth}
+\begin{center}
+\includegraphics[width=\textwidth]{images/Sys_Reeduc_01}
+\end{center}
+\end{minipage}
+
+\subsection*{Présentation du système -- Analyse externe}
+
+\ifprof
+\else
+Le Sys-Reeduc est destiné à aider à la rééducation des membres inférieurs chez les patients ayant été victime d'un accident. Ce système permet une rééducation active, ce qui signifie que l'on cherche à renforcer les muscles et la coordination musculaire. Elle est réalisée en boucle fermée : le patient ne se laisse pas conduire par le système mais résiste au mouvement proposé par la machine.
+
+Les exercices en chaîne fermée permettent au patient de récupérer beaucoup plus rapidement. Le système Sys-Reeduc a l'avantage de proposer des exercices combinant la flexion de la jambe à la rotation du pied de manière à solliciter parfaitement les muscles souhaités. 
+
+Dans le cadre du fonctionnement du système, le kinésithérapeute peut aider à la rééducation des membres inférieurs du patient en agissant sur : 
+\begin{itemize}
+\item la flexion – extension du genou ;
+\item la « vrille » de la cheville (rotation interne-externe).
+\end{itemize}
+
+Le système doit aussi permettre la flexion -- extension de la cheville et s’adapter à la morphologie des patients. Enfin, pour des raisons de sécurité, le système ne doit pas blesser le patient. 
+
+Le système doit répondre (entre autres) aux exigences suivantes : 
+\begin{center}
+\begin{tabular}{p{.35\textwidth}p{.27\textwidth}p{.27\textwidth}}
+\hline
+\textbf{Exigences} & \textbf{Critères} & \textbf{Niveaux} \\
+\hline
+\hline
+\multirow{4}{.35\textwidth}{Permettre au kinésithérapeute de rééduquer les membres inférieurs du patient}
+&
+Angle de rotation de la cuisse & De 0\textdegree \; à 150\textdegree \\
+& Effort du patient & Jusqu'à 20 N.\\
+& Écart de position & Nul \\
+& Rapidité & $T_{5\%}<0,2 \; s.$ \\
+\hline
+\multirow{3}{.35\textwidth}{S'adapter à la morphologie des patients} & Longueur de la cuisse et jambe & De 0,6 à 1,2 m. \\
+ & Écartement du bassin & 370 à 600 mm. \\
+ & Distance plat du pied -- cheville & \\
+\hline
+\multirow{2}{.35\textwidth}{Ne pas blesser le patient} & \multirow{2}{.27\textwidth}{Sécurité} & Bloquer le fonctionnement en fonction de la taille du patient \\
+\hline
+\end{tabular}
+\end{center}
+\fi
+
+\subparagraph{}
+\textit{Proposer un diagramme de contexte faisant la liste des entités interagissant avec le système.}
+\ifprof
+\begin{corrige}
+\begin{center}
+\includegraphics[width=.7\textwidth]{images/contexte}
+\end{center}
+\end{corrige}
+\else
+\fi
+\subparagraph{}
+\textit{Proposer un diagramme de cas d'utilisation. Pour cela, on précisera : 
+\begin{itemize}
+ \item deux acteurs;
+ \item un cas d'utilisation principal;
+ \item un cas d'utilisation de type <<include>> (cas d'utilisation obligatoirement exécuté);
+ \item un cas d'utilisation de type <<extend>> (cas d'utilisation optionnel).
+\end{itemize}}
+\ifprof
+\begin{corrige}
+\begin{center}
+%\includegraphics[width=.9\textwidth]{images/}
+\end{center}
+\end{corrige}
+\else
+\fi
+
+
+\subparagraph{}
+\textit{Dans le diagramme des exigences partiel, compléter les exigences \textit{1.2}, \textit{1.2.1} et \textit{1.4.1} du cahier des charges.}
+\ifprof
+\begin{corrige}
+\begin{center}
+\includegraphics[width=\textwidth]{images/Exigences_Corr}
+\end{center}
+\end{corrige}
+\else
+\begin{center}
+\includegraphics[width=\textwidth]{images/ExigencesVierges}
+\end{center}
+\fi
+
+\subsection*{Architecture du système -- Analyse interne}
+
+
+\ifprof
+\else
+Dans le cadre du système, le haut du corps du patient est supposé immobile. 2 chaînes fonctionnelles sont associées aux 2 mouvements réglables par le kinésithérapeute :
+\begin{itemize}
+\item la première chaîne fonctionnelle permet la flexion du genou, réalisée par la translation du support mobile 1 en utilisant une glissière de type Bosh-Rexroth;
+\item la seconde chaîne fonctionnelle est assurée par le groupe gammatic et permet la rotation interne-externe du pied via le support 3.
+\end{itemize}
+Le support 2 permet la flexion de la cheville mais n’est pas motorisé.
+
+ 
+
+\begin{center}
+\includegraphics[width=.8\textwidth]{images/schema}
+
+\textit{Liaison glissière entre le bâti 0 et le support 1}
+\end{center}
+ 	 
+
+
+\begin{minipage}[c]{.48\linewidth}
+\begin{center}
+\includegraphics[width=.8\textwidth]{images/glissiere}
+
+\textit{Composant Bosh-Rexroth}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.48\linewidth}
+\begin{center}
+\includegraphics[width=.8\textwidth]{images/support}
+
+\textit{Support de pied  - Groupe gammatic}
+\end{center}
+\end{minipage}
+	
+
+La liaison glissière entre le support 1 et le bâti 0 est réalisée par le composant Bosh-Rexroth. Sa course est de 1,3 m. Cette liaison est associée à un moteur et à un réducteur permettant d’assurer une translation à une vitesse maximale de 2 m/s. Ces valeurs permettent de travailler avec un profil de rééducation à faible charge ou avec un profil de rééducation sportif. Un dispositif poulie-courroie permet de transformer la rotation en sortie du réducteur en translation du plateau supérieur. Les deux modules linéaires sont montés sur des rails permettant d’ajuster leur écartement afin d’adapter le système à la morphologie de chaque utilisateur. Sa variation est comprise entre 370 et 600 mm.
+
+La liaison entre les solides 1 et 2 est ajustable en profondeur (par un ensemble de cales) afin de pouvoir aligner positionner la cheville. Elle permet également le réglage de l’inclinaison du pied grâce à une tige de fixation à huit positions comprises entre -20\textdegree et 50\textdegree. Enfin, une fixation, qui n’est pas présentée ici, permet de maintenir le pied en contact avec le support mobile.
+
+La liaison entre 2 et 3 (groupe gammatic) est motorisée pour permettre la rotation interne-externe du pied. Ainsi, le pied repose sur une semelle mise en rotation par un moteur-réducteur. Celui-ci permet d’engendrer un couple maximal de 20 N.m pour une vitesse maximale de 10 tour/s. 
+
+Les fréquences de rotation des deux motoréducteurs (utilisés pour actionner les liaisons 0 – 1 et 2 – 3) sont mesurées à l'aide de codeurs incrémentaux permettant ainsi la mesure du déplacement $x(t)$ et de l’angle de rotation entre les solides 2 et 3. Des capteurs de fin de course situés sur les axes permettent d'arrêter l'exercice en cas de problèmes liés à la commande (la position de ces capteurs est réglable pour s'adapter au patient). Deux capteurs d'efforts tridimensionnels permettent de mesurer les forces et couples appliqués par le patient sur la machine. Ils permettent :
+\begin{itemize}
+\item d'évaluer l'efficacité, la performance et l'amélioration des aptitudes motrices ;
+\item de mesurer l'effort que le patient oppose au mouvement afin d'imposer un couple adapté sur les axes moteur.
+\end{itemize}
+Les moteurs sont alimentés par des variateurs électroniques pilotés par une carte de commande qui génère les lois de commande en fonction du retour des capteurs.
+
+Le kinésithérapeute peut régler le système grâce à une interface homme/machine.
+
+\fi
+
+\subparagraph{}
+\textit{Compléter le diagramme de définition des blocs.}
+
+\ifprof
+\begin{corrige}
+\begin{center}
+\includegraphics[width=\textwidth]{images/BDD_Cor}
+\end{center}
+\end{corrige}
+\else
+\begin{center}
+\includegraphics[width=\textwidth]{images/bdd}
+\end{center}
+\fi
+
+
+\subparagraph{}
+\textit{Compléter le diagramme de blocs interne.}
+
+\ifprof
+\begin{corrige}
+\begin{center}
+\includegraphics[width=.9\textwidth]{images/ibd_corr.png}
+\end{center}
+\end{corrige}
+\else
+\begin{center}
+\includegraphics[width=\textwidth]{images/ibd}
+\end{center}
+\fi
+
+
+
+\subparagraph{}
+\textit{Compléter la chaîne topo fonctionnelle associée à l’ensemble support 1.}
+
+\ifprof
+\begin{corrige}
+\begin{center}
+\includegraphics[width=.9\textwidth]{images/cice_corr}
+\end{center}
+\end{corrige}
+\else
+\begin{center}
+\includegraphics[width=\textwidth]{images/cice}
+\end{center}
+\fi
+\end{document}
+
+
