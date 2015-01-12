@@ -1,0 +1,26 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 03/31/09 by Jean-Pierre
+' *****************************************************************************
+Dim swApp As Object
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long
+Dim Annotation As Object
+Dim Gtol As Object
+Dim DatumTag As Object
+Dim FeatureData As Object
+Dim Feature As Object
+Dim Component As Object
+Sub main()
+
+Set swApp = Application.SldWorks
+
+Set Part = swApp.OpenDoc4 ("F:\Crs2008-2009\PTSI-09-Construction\CPT-Réducteur\Red-12\CARTER-GAUCHE.SLDASM", 2, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("CARTER-GAUCHE.SLDASM")
+swApp.ActiveDoc.ActiveView.FrameLeft = 0
+swApp.ActiveDoc.ActiveView.FrameTop = 0
+swApp.ActiveDoc.ActiveView.FrameState = 1
+swApp.ActiveDoc.ActiveView.FrameState = 1
+swApp.ActiveDoc.ActiveView.FrameState = 1
+swApp.ExitApp
+End Sub
