@@ -1,0 +1,123 @@
+\documentclass[10pt]{article}
+\input{style/coursHeadings}
+\input{style/programHeadings}
+\input{style/macros_SII}
+\input{style/macros_Titres}
+\input{style/macros_Frames}
+
+%Si le boolen xp est vrai : compilation pour xabi
+%Sinon compilation Damien
+\newboolean{xp}
+\setboolean{xp}{true}
+
+\newboolean{prof}
+\setboolean{prof}{false}
+
+\newif\ifprof
+%\proftrue
+\proffalse
+
+\newboolean{td}
+\setboolean{td}{true}
+
+\usepackage[%
+    pdftitle={CI7 - CPT},
+    pdfauthor={Xavier Pessoles},
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=magenta]{hyperref}
+
+\def\discipline{Sciences Industrielles de l'Ingénieur}
+
+\def\xxtitre{\ifthenelse{\boolean{xp}}{CI 7 -- CPT : Étude des systèmes mécaniques -- Analyser, Concevoir, Réaliser
+}{}}
+
+\def\xxsoustitre{\ifthenelse{\boolean{xp}}{
+Chapitre 5 -- Liaison Pivot - Éléments roulants}{
+}}
+
+
+\def\xxauteur{\ifthenelse{\boolean{xp}}{
+\noindent Xavier \textsc{Pessoles}}{
+}}
+
+
+\def\xxpied{\ifthenelse{\boolean{xp}}{
+CI 7 : Systèmes mécaniques -- Conception\\
+Ch 5 : Liaison Pivot -- Éléments Roulants -- Application -- \ifthenelse{\boolean{prof}}{P}{E}%
+}{
+}}
+
+\def\xxcathegorie{\ifthenelse{\boolean{xp}}{
+}{
+Informatique - Cours}}
+
+%---------------------------------------------------------------------------
+
+
+\begin{document}
+
+\ifthenelse{\boolean{xp}}{\input{style/enteteXP}}{\input{style/enteteDI}}
+
+\begin{flushright}
+\textit{D'après ressources de Maryline Carrez.}
+\end{flushright}
+
+
+%\renewcommand{\baselinestretch}{1.2}
+%\setlength{\parskip}{2ex plus 0.5ex minus 0.2ex}
+
+
+%
+%\begin{comp}
+%\noindent \textbf{Résoudre :} à partir des modèles retenus :
+%\begin{itemize}
+%\item choisir une méthode de résolution analytique, graphique, numérique;
+%\item mettre en \oe{}uvre une méthode de résolution.
+%\end{itemize}
+%
+%\noindent \textit{Rés -- C1.1 :} Loi entrée sortie géométrique et cinématique -- Fermeture géométrique.
+%
+%\end{comp}
+
+
+
+\section*{Poulie folle}
+
+Il s’agit de concevoir un système permettant de réaliser une
+« poulie folle », à savoir un mécanisme de renvoi de tension.
+L’ensemble est composé d’une poulie 1 (fonte EN-GJS 350-5),
+d’un axe 2 (acier E335), d’une équerre moulée 3 (acier GS 400),
+d’une tige verticale 4 (acier E335) et d’un support 5 (fonte EN-
+GJS 350-5).
+La charge extérieure est constante et est due principalement à la
+tension de la courroie. La direction de la courroie reste fixe.
+L’étanchéité dynamique sera réalisée par des joints à une lèvre
+et l’étanchéité statique par joint toriques.
+On donne le schéma technologique. La tige 4 est en liaison pivot
+avec le support vertical 5 et la poulie 1 est en liaison pivot avec
+l’équerre 3.
+
+
+\begin{minipage}[c]{.47\linewidth}
+\begin{center}
+\includegraphics[width=.4\textwidth]{images/Fig1}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.47\linewidth}
+\begin{center}
+\includegraphics[width=.4\textwidth]{images/Fig2}
+\end{center}
+\end{minipage}
+
+\subparagraph{}\textit{Concevoir la liaison pivot entre la poulie 1 et l’équerre 3 en utilisant des roulements à billes à contact radial.}
+%\subparagraph{}\textit{Concevoir la liaison encastrement démontable entre l’équerre 3 et l’axe 1.}
+\subparagraph{}\textit{Concevoir la liaison entre le support 5 et l’équerre 3 via la tige 4.}
+\subparagraph{}\textit{Préciser les ajustements ainsi que les jeux fonctionnels.}
+
+
+\begin{center}
+\includegraphics[height=\textheight]{images/Fig3}
+\end{center}
+\end{document}
+
