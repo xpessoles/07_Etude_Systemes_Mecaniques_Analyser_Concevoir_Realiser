@@ -1,0 +1,22 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 09/25/09 by Jean-Pierre
+' *****************************************************************************
+Dim swApp As Object
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long
+Dim Annotation As Object
+Dim Gtol As Object
+Dim DatumTag As Object
+Dim FeatureData As Object
+Dim Feature As Object
+Dim Component As Object
+Sub main()
+
+Set swApp = Application.SldWorks
+
+Set Part = swApp.OpenDoc4 ("F:\Crs2009-2010\PT-10-POLY-FAB\Support-Guide\Support-guide.SLDDRW", 3, 0, "", longstatus)
+Set Part = swApp.ActivateDoc ("Support-guide - Feuille1")
+Part.EditSketch
+swApp.ExitApp
+End Sub
