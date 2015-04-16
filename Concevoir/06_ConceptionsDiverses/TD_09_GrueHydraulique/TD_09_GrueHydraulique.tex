@@ -1,0 +1,239 @@
+\documentclass[10pt]{article}
+\input{style/coursHeadings}
+\input{style/programHeadings}
+\input{style/macros_SII}
+\input{style/macros_Titres}
+\input{style/macros_Frames}
+
+%Si le boolen xp est vrai : compilation pour xabi
+%Sinon compilation Damien
+
+\newif\ifprof
+%\proftrue
+\proffalse
+
+\newif\ifxp
+\xptrue
+%\xpfalse
+
+\newif\iftd
+\tdtrue
+%\tdfalse
+
+
+\usepackage[%
+    pdftitle={},
+    pdfauthor={Xavier Pessoles},
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=magenta]{hyperref}
+
+
+\def\discipline{Sciences Industrielles de l'Ingénieur}
+\def\xxtitre{%
+\ifxp
+CI ** : 
+\else
+\fi
+}
+
+\def\xxsoustitre{%
+\ifxp
+Chapitre ** -- 
+\else
+\fi}
+
+\def\xxauteur{%
+\ifxp
+Xavier \textsc{Pessoles}
+\else
+\fi}
+
+\def\xxpied{%
+\ifxp
+CI ** : **\\
+Ch. ** : ** -- Cours TD
+\else
+\fi}
+
+
+
+%---------------------------------------------------------------------------
+
+
+\begin{document}
+\ifxp
+\input{style/enteteXP}
+\else
+\input{style/enteteDI}
+\fi
+
+
+\begin{flushright}
+\textit{D'après ressources PTSI -- Lycée G. Eiffel -- Bordeaux.}
+\end{flushright}
+\setlength{\parskip}{0ex plus 0.2ex minus 0ex}
+ \renewcommand{\contentsname}{}
+ \renewcommand{\baselinestretch}{1}
+
+
+
+
+\section{Mise en situation}
+
+Un navire chasseur de mines est équipé au niveau du pont arrière d'une grue hydraulique destinée à la mise à l'eau ou à la mise au sec de charges dont le poids maximum est de 7,5 kN.
+
+Les conditions d'emploi de cette grue ont conduit à opter pour une structure géométriquement variable et notamment repliable avec un faible encombrement lorsqu'elle n'est pas en service. La structure porteuse est constituée de trois parties articulées. 
+
+Un corps 31 pivotant autour d'un axe vertical. Ce corps est solidaire d'une plateforme au dessous de laquelle un mot réducteur hydraulique et un couple pignon roue intérieure (ayant le diamètre approximatif de la plateforme) permet d'actionner la rotation d'axe vertical.
+
+
+Un portique 32 articulé sur 31 et actionné par un vérin hydraulique. 
+
+Une flèche 35 articulée sur 32 et actionnée par un vérin hydraulique. 
+
+A l'extrémité de la f-èche, un treuil 38 est équipé de deux moteurs hydrauliques réglables électroniquement afin d'assurer une tension constante du câble pour éviter les à-coups dus aux mouvements de la houle pendant l'ascension et la descente de la charge explosive. 
+
+L'ensemble est piloté à partir d'un pupitre portatif représenté sur la figure 2 :
+\begin{itemize}
+\item le levier à deux positions C2 commande la montée ou la descente de la flèche (vérin 36, 37);
+\item le levier à deux positions C3 commande l'inclinaison du portique (vérin 33, 34);
+\item les commandes de hissage et de rotation peuvent être combinés et sont regroupées sur le même levier;
+\item le sélecteur C1 permet d'engager le système de suivi de houle ou de produire une descente à vide plus rapide.
+\end{itemize}
+
+\section{Fonctionnement du treuil}
+La figure 3 présente les 3 vues extérieures du treuil. Celui-ci est boulonné à l'extrémité de la flèche. L'arbre de sortie supporte une bobine à enroulement spiral permettant des man\oe{}uvres rapides. Le treuil est muni de deux moteurs hydrauliques protégés des chocs par une structure tubulaire externe. 
+
+Le treuil est schématisé sur la figure 4. Outre le dispositif réducteur de vitesse formé de deux trains d'engrenages cylindriques à denture droite, il est constitué des éléments suivants : 
+\begin{itemize}
+\item d'un moteur hydraulique principal [MP];
+\item d'un moteur hydraulique de suivi de houle [MSH];
+\item d'un système anti dévireur (roue libre);
+\item d'un frein hydraulique à lamelles [FH];
+\item d'un compte tours de fin de course [CT].
+\end{itemize}
+
+Lors du fonctionnement en hissage (croquis 1 figure 5) ou en largage (croquis 2) sans houle, le [MSH] n'est pas mis en pression (sélecteur C1 au milieu). Il peut alors tourner dans les deux sens sans résistance notable. Il se comporte comme une pompe en circuit fermé. Seul le [MP] participe à la montée ou ) la descente de la charge. 
+
+Lors du largage avec mouvement de houle important (croquis 3), sélecteur C1 en bas, le [MP] est en mouvement de descente et le [MSH] est entraîné par la pression d'huile dans le sens de hissage pour maintenir une tension constante mais son couple est insuffisant pour soulever la charge. En revanche, sa position en prise directe sur l'arbre de la poulie d'enroulement permet d'enrouler rapidement le câble lorsque la charge est allégée par les efforts d'inertie dus au mouvement de la houle montante. 
+
+En descendant, la houle augmente la tension du câble, le [MSH] est alors entraîné en sens contraire comme une pompe (croquis 4) et l'huile est alors renvoyée au réservoir basse pression.
+
+Lors du largage du câble à vide (croquis 5), le [MSH] entraîne dans le sens de la descente. 
+
+En cas de chute de pression hydraulique, le frein à lamelle bloque le réducteur. 
+
+\section{Étude de conception}
+
+On se propose dans un premier temps de concevoir le réducteur du treuil. On donne pour cela sur le document annexe à l'échelle 1:2, les dimensions exactes et les positions approximatives des éléments fondamentaux du réducteur. 
+
+\begin{itemize}
+\item Le moteur principal 2 est fixé au réducteur par 5 vis HM 12.
+\item Le moteur de suivi de houle 3 est de géométrie identique.
+\item Le compte tours 4 est fixé au réducteur par trois vis CHC M8.
+\item Le pignon arbré sur l'arbre d'entrée 5 a pour caractéristiques un module de 3 et 20 dents.
+\item Le pignon moulé 6 sur l'arbre intermédiaire a pour caractéristiques un module de 3 et 80 dents.
+\item Le pignon arbré 7 sur l'arbre intermédiaire a pour caractéristiques un module de 5 et 15 dents.
+\item La roue dentée 8 moulée présente sur l'arbre de sortie a pour caractéristiques un module de 5 et 70 dents.
+\item Une roue libre (à représenter en coupe médiane) est située entre 6 et 7.
+\item Le diamètre d'enroulement du câble sur la bobine est de 500\; mm.
+\item le diamètre minimum d'enroulement du câble est de 200 \; mm.
+\item L'enroulement est purement spiral.
+\item Le diamètre du câble en acier est de 10 mm.
+\item Le carter du réducteur(1a) est en fonte lamellaire moulée. 
+\item Il est constitué de deux parties dont un couvercle (1b) situé du côté des moteurs et du compte tour qui s'ouvre sur toute l'étendue de la face pour permettre le montage des constituants internes du réducteur.
+\item Le lubrification se fait par bain d'huile.
+\item Les formes externes ne doivent pas retenir l'eau des intempéries et doivent faciliter l'entretien périodique des installations de peinture. 
+\end{itemize}
+
+\section{Conception de l'arbre primaire et du frein à lamelles}
+Cette conception se fait à l'échelle 1 sur un format A3 horizontal. Les formes locales du carter et de son couvercle y seront définies. Les fonctions à assurer sont : 
+\begin{itemize}
+\item Liaison encastrement démontable du moteur principal 2 sur le couvercle du carter.
+\item Accouplement rigide avec léger rotulage autorisé entre l'arbre de sortie du moteur et l'arbre primaire 5. 
+\item Liaison pivot par roulements par rapport au carter et son couvercle.
+\item Le frein à lamelles à commande hydraulique. Il doit bloquer l'arbre primaire en l'absence de pression d'huile. On donne sur la figure 6 le schéma de principe de ce frein.
+\end{itemize}
+
+Les ressorts de compression sont constitués d'un fil d'acier au silicium de 2 mm de diamètre enroulé sur un diamètre moyen de 8 mm avec 8 spires utiles. Leur coefficient de raideur unitaire est de 4 daN/mm.
+
+\subparagraph{}
+\textit{Quel est le couple de freinage nécessaire pour bloquer la charge maximale avec une marge de sécurité de 30\%.}
+
+\subparagraph{}
+\textit{Les représentations de face des lamelles étant fournies ci-dessous, rechercher un triplet optimal \{nombre de ressorts, nombre de lamelles, écrasement de précharge des ressorts\}. Le coefficient de frottement au niveau des lamelles sera minoré de 0,08.}
+
+\subparagraph{}
+\textit{Déterminer la section utile du piston pour désactiver le frein avec une pression de 20 bars.}
+
+\subparagraph{}
+\textit{Effectuer le dessin d'ensemble du montage de l'arbre primaire en coupe diamétrale.}
+
+
+\section{Deuxième étape : Conception de l'arbre intermédiaire et de l'antidévireur}
+
+Cette conception se fera sur un forma A3 tenu horizontalement à l'échelle 1.
+
+La ligne d'arbre intermédiaire doit assurer plusieurs fonctions :
+\begin{itemize}
+\item liaison encastrement démontable du compte tours 4 sur le couvercle 1b du carter;
+\item accouplement rigide avec léger rotulage entre l'arbre du compte tours (4) et l'arbre intermédiaire (7) du réducteur de treuil;
+\item liaison pivot par deux roulements de l'arbre intermédiaire 7 par rapport au carter;
+\item guidage en rotation par deux roulements du pignon 6 par rapport à l'arbre 7
+\item dispositif antidévireur à rouleaux cylindriques entre 6 et 7. LA coupe BB du document annexe précise une architecture possible de ce dispositif. 
+\end{itemize}
+
+\subparagraph{}
+\textit{Sur la figure ci-dessous, représenter la condition d'équilibre limite du rouleau en phase d'arc boutement. Déduire l'expression de Hmini conditionnant le dégagement dans la bague interne en fonction de $R$ : rayon de la bague externe, $r$ rayon du rouleau et de $\varphi$ : angle de frottement.
+Calculer la valeur de Hmin pour $R=47,5$, $r=5$ et $\tan\varphi = 0,07$.}
+
+\subparagraph{}
+\textit{Quel serait le couple transmis par la roue libre lors du soulèvement d'une charge de 7,5 kN avec une marge de 30\%.
+La roue libre comporte 8 rouleaux de largeur $L=20\;mm$ et la hauteur du dégagement est $H=37,2\; mm$. Déterminer la valeur de la densité linéique d'effort de contact entre un rouleau et la bague externe dans les conditions ci-dessus.
+Proposer des matériaux cohérents pour les rouleaux et les bagues de l'antidévireur.}
+
+
+\subparagraph{}
+\textit{Effectuer le dessin d'ensemble du montage de l'arbre intermédiaire de la roue libre en coupe diamétrale.}
+
+
+\section{Troisième étape : conception de l'arbre de sortie du réducteur}
+
+Cette conception se fera sur format A3 tenu horizontalement en tenant compte des éléments précédents.
+
+L'arbre de sortie doit assurer plusieurs fonctions élémentaires :
+\begin{itemize}
+\item liaison encastrement démontable du moteur de suivi de houle;
+\item accouplement rigide avec un léger rotulage autorisé entre l'arbre du [MSH] et l'arbre de sortie du réducteur noté 9;
+\item sortie de l'arbre avec étanchéité à l'huile et protection efficace contre l'air marin et les intempéries;
+\item liaisons encastrement démontable de la bobine à enroulement spiral.
+\end{itemize}
+
+
+On se remémorera les paramètres de la bobine en relisant la partie 3.
+\subparagraph{}
+\textit{}
+
+\subparagraph{}
+\textit{}
+
+\subparagraph{}
+\textit{}
+
+\subparagraph{}
+\textit{}
+
+\subparagraph{}
+\textit{}
+
+\subparagraph{}
+\textit{}
+
+\subparagraph{}
+\textit{}
+
+
+\end{document}
+
+
