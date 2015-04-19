@@ -194,13 +194,13 @@ En cas de chute de pression hydraulique, le frein à lamelle bloque le réducteu
 
 \section{Étude de conception}
 
-On se propose dans un premier temps de concevoir le réducteur du treuil. On donne pour cela sur le document annexe à l'échelle 1:2, les dimensions exactes et les positions approximatives des éléments fondamentaux du réducteur. 
+On se propose dans un premier temps de concevoir le réducteur du treuil. On donne pour cela sur le document annexe à l'échelle $1:2$, les dimensions exactes et les positions approximatives des éléments fondamentaux du réducteur. 
 
 \begin{itemize}
-\item Le moteur principal 2 est fixé au réducteur par 5 vis HM 12.
+%\item Le moteur principal 2 est fixé au réducteur par 5 vis HM 12.
 \item Le moteur de suivi de houle 3 est de géométrie identique.
 \item Le compte tours 4 est fixé au réducteur par trois vis CHC M8.
-\item Le pignon arbré sur l'arbre d'entrée 5 a pour caractéristiques un module de 3 et 20 dents.
+%\item Le pignon arbré sur l'arbre d'entrée 5 a pour caractéristiques un module de 3 et 20 dents.
 \item Le pignon moulé 6 sur l'arbre intermédiaire a pour caractéristiques un module de 3 et 80 dents.
 \item Le pignon arbré 7 sur l'arbre intermédiaire a pour caractéristiques un module de 5 et 15 dents.
 \item La roue dentée 8 moulée présente sur l'arbre de sortie a pour caractéristiques un module de 5 et 70 dents.
@@ -209,22 +209,26 @@ On se propose dans un premier temps de concevoir le réducteur du treuil. On don
 \item le diamètre minimum d'enroulement du câble est de 200 \; mm.
 \item L'enroulement est purement spiral.
 \item Le diamètre du câble en acier est de 10 mm.
-\item Le carter du réducteur(1a) est en fonte lamellaire moulée. 
-\item Il est constitué de deux parties dont un couvercle (1b) situé du côté des moteurs et du compte tour qui s'ouvre sur toute l'étendue de la face pour permettre le montage des constituants internes du réducteur.
-\item Le lubrification se fait par bain d'huile.
-\item Les formes externes ne doivent pas retenir l'eau des intempéries et doivent faciliter l'entretien périodique des installations de peinture. 
+%\item Le carter du réducteur(1a) est en fonte lamellaire moulée. 
+%\item Il est constitué de deux parties dont un couvercle (1b) situé du côté des moteurs et du compte tour qui s'ouvre sur toute l'étendue de la face pour permettre le montage des constituants internes du réducteur.
+%\item Le lubrification se fait par bain d'huile.
+%\item Les formes externes ne doivent pas retenir l'eau des intempéries et doivent faciliter l'entretien périodique des installations de peinture. 
 \end{itemize}
 
 \section{Conception de l'arbre primaire et du frein à lamelles}
-Cette conception se fait à l'échelle 1 sur un format A3 horizontal. Les formes locales du carter et de son couvercle y seront définies. Les fonctions à assurer sont : 
-\begin{itemize}
-\item Liaison encastrement démontable du moteur principal 2 sur le couvercle du carter.
-\item Accouplement rigide avec léger rotulage autorisé entre l'arbre de sortie du moteur et l'arbre primaire 5. 
-\item Liaison pivot par roulements par rapport au carter et son couvercle.
-\item Le frein à lamelles à commande hydraulique. Il doit bloquer l'arbre primaire en l'absence de pression d'huile. On donne sur la figure 6 le schéma de principe de ce frein.
-\end{itemize}
-
-Les ressorts de compression sont constitués d'un fil d'acier au silicium de 2 mm de diamètre enroulé sur un diamètre moyen de 8 mm avec 8 spires utiles. Leur coefficient de raideur unitaire est de 4 daN/mm.
+Cette conception se fait à l'échelle 1 sur un format A3 horizontal. Les formes locales du carter et de son couvercle y seront définies. Les fonctions exigences à respecter sont listées dans le diagramme ci-dessous.
+ 
+\begin{center}
+\includegraphics[width=\textwidth]{images/SysML/ArbrePrimaire.png}
+\end{center}
+%\begin{itemize}
+%\item Liaison encastrement démontable du moteur principal 2 sur le couvercle du carter.
+%\item Accouplement rigide avec léger rotulage autorisé entre l'arbre de sortie du moteur et l'arbre primaire 5. 
+%\item Liaison pivot par roulements par rapport au carter et son couvercle.
+%\item Le frein à lamelles à commande hydraulique. Il doit bloquer l'arbre primaire en l'absence de pression d'huile. On donne sur la figure 6 le schéma de principe de ce frein.
+%\end{itemize}
+%
+%Les ressorts de compression sont constitués d'un fil d'acier au silicium de 2 mm de diamètre enroulé sur un diamètre moyen de 8 mm avec 8 spires utiles. Leur coefficient de raideur unitaire est de 4 daN/mm.
 
 \subparagraph{}
 \textit{Quel est le couple de freinage nécessaire pour bloquer la charge maximale avec une marge de sécurité de 30\%.}
