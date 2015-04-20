@@ -189,28 +189,28 @@ En cas de chute de pression hydraulique, le frein à lamelle bloque le réducteu
 \end{minipage} 
 
 
-\section{Étude de conception}
+%\section{Étude de conception}
 
-On se propose dans un premier temps de concevoir le réducteur du treuil. %On donne pour cela sur le document annexe à l'échelle $1:2$, les dimensions exactes et les positions approximatives des éléments fondamentaux du réducteur. 
+%On se propose dans un premier temps de concevoir le réducteur du treuil. %On donne pour cela sur le document annexe à l'échelle $1:2$, les dimensions exactes et les positions approximatives des éléments fondamentaux du réducteur. 
 
-\begin{itemize}
+%\begin{itemize}
 %\item Le moteur principal 2 est fixé au réducteur par 5 vis HM 12.
-\item Le moteur de suivi de houle 3 est de géométrie identique.
+%\item Le moteur de suivi de houle 3 est de géométrie identique.
 %\item Le compte tours 4 est fixé au réducteur par trois vis CHC M8.
 %\item Le pignon arbré sur l'arbre d'entrée 5 a pour caractéristiques un module de 3 et 20 dents.
 %\item Le pignon moulé 6 sur l'arbre intermédiaire a pour caractéristiques un module de 3 et 80 dents.
 %\item Le pignon arbré 7 sur l'arbre intermédiaire a pour caractéristiques un module de 5 et 15 dents.
-\item La roue dentée 8 moulée présente sur l'arbre de sortie a pour caractéristiques un module de 5 et 70 dents.
+%\item La roue dentée 8 moulée présente sur l'arbre de sortie a pour caractéristiques un module de 5 et 70 dents.
 %\item Une roue libre (à représenter en coupe médiane) est située entre 6 et 7.
-\item Le diamètre d'enroulement du câble sur la bobine est de 500\; mm.
-\item le diamètre minimum d'enroulement du câble est de 200 \; mm.
-\item L'enroulement est purement spiral.
-\item Le diamètre du câble en acier est de 10 mm.
+%\item Le diamètre d'enroulement du câble sur la bobine est de 500\; mm.
+%\item le diamètre minimum d'enroulement du câble est de 200 \; mm.
+%\item L'enroulement est purement spiral.
+%\item Le diamètre du câble en acier est de 10 mm.
 %\item Le carter du réducteur(1a) est en fonte lamellaire moulée. 
 %\item Il est constitué de deux parties dont un couvercle (1b) situé du côté des moteurs et du compte tour qui s'ouvre sur toute l'étendue de la face pour permettre le montage des constituants internes du réducteur.
 %\item Le lubrification se fait par bain d'huile.
 %\item Les formes externes ne doivent pas retenir l'eau des intempéries et doivent faciliter l'entretien périodique des installations de peinture. 
-\end{itemize}
+%\end{itemize}
 
 \section{Conception de l'arbre primaire et du frein à lamelles}
 Cette conception se fait à l'échelle 1 sur un format A3 horizontal. Les formes locales du carter et de son couvercle y seront définies. Les exigences à respecter sont listées dans le diagramme ci-dessous.
@@ -256,6 +256,10 @@ Cette conception se fait à l'échelle 1 sur un format A3 horizontal. Les formes
 
 Cette conception se fera sur un forma A3 tenu horizontalement à l'échelle 1. Les exigences à respecter sont données dans le diagramme ci-dessous.
 
+\begin{center}
+\includegraphics[width=\textwidth]{images/SysML/ArbreIntermediaire}
+\end{center}
+
 %La ligne d'arbre intermédiaire doit assurer plusieurs fonctions :
 %\begin{itemize}
 %\item liaison encastrement démontable du compte tours 4 sur le couvercle 1b du carter;
@@ -293,18 +297,14 @@ Proposer des matériaux cohérents pour les rouleaux et les bagues de l'antidév
 
 \section{Troisième étape : conception de l'arbre de sortie du réducteur}
 
-Cette conception se fera sur format A3 tenu horizontalement en tenant compte des éléments précédents.
+Cette conception se fera sur format A3 en tenant compte des éléments précédents. Les exigences à respecter sont listées dans le diagramme des exigences suivant. 
 
-L'arbre de sortie doit assurer plusieurs fonctions élémentaires :
-\begin{itemize}
-\item liaison encastrement démontable du moteur de suivi de houle;
-\item accouplement rigide avec un léger rotulage autorisé entre l'arbre du [MSH] et l'arbre de sortie du réducteur noté 9;
-\item sortie de l'arbre avec étanchéité à l'huile et protection efficace contre l'air marin et les intempéries;
-\item liaisons encastrement démontable de la bobine à enroulement spiral.
-\end{itemize}
+\begin{center}
+\includegraphics[width=\textwidth]{images/SysML/ArbreSortie}
+\end{center}
 
 
-On se remémorera les paramètres de la bobine en relisant la partie 3.
+
 
 \subparagraph{}
 \textit{Déterminer le nombre de tours $N$ que le câble peut effectuer autour de la poulie. 
@@ -334,17 +334,11 @@ La masse de la flèche est évaluée à 260 kg, celle du treuil à 100 kg. Les c
 \subparagraph{}
 \textit{Effectuer la cotation fonctionnelle complète de l'ensemble des pièces constituants cette articulation (dimensions linéaires, défauts de forme et de position, états de surface).}
 
-\begin{center}
-\rotatebox{270}{\includegraphics[height=.95\textwidth]{images/MoteurHydraulique}}
-
-\rotatebox{270}{\includegraphics[height=.8\textwidth]{images/CompteTours}}
-\end{center}
 
 \section*{Annexes}
 
-\subsection{Couple transmissible par adhérence dans un embrayage à disque ou dans un frein}
+\subsection*{Couple transmissible par adhérence dans un embrayage à disque ou dans un frein}
 
-\subsubsection{Exemple : Couple transmis par frottement dans un embrayage à disque}
 
 \begin{minipage}[c]{.3\linewidth}
 \begin{center}
@@ -437,6 +431,13 @@ Pneu neuf / Route & 1 & 0,6  & 0,5 à 0,6  & 0,2 à 0,5\\ \hline
 
 
 
+\subsection*{Esquisse du moteur hydraulique et du compte tours}
+
+\begin{center}
+\rotatebox{270}{\includegraphics[height=.95\textwidth]{images/MoteurHydraulique}}
+
+\rotatebox{270}{\includegraphics[height=.8\textwidth]{images/CompteTours}}
+\end{center}
 
 \end{document}
 
