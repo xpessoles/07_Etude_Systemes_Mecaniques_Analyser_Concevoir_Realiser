@@ -1,0 +1,238 @@
+\documentclass[10pt]{article}
+\input{style/coursHeadings}
+\input{style/programHeadings}
+\input{style/macros_SII}
+\input{style/macros_Titres}
+\input{style/macros_Frames}
+
+%Si le boolen xp est vrai : compilation pour xabi
+%Sinon compilation Damien
+
+\newif\ifprof
+%\proftrue
+\proffalse
+
+\newif\ifxp
+\xptrue
+%\xpfalse
+
+\newif\iftd
+\tdtrue
+%\tdfalse
+
+
+\usepackage[%
+    pdftitle={},
+    pdfauthor={Xavier Pessoles},
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=magenta]{hyperref}
+
+
+\def\discipline{Sciences Industrielles de l'Ingénieur}
+\def\xxtitre{%
+\ifxp
+07 -- Étude des systèmes mécaniques -- Analyser
+\else
+\fi
+}
+
+\def\xxsoustitre{%
+\ifxp
+Boîte de transfert de 4x4
+\else
+\fi}
+
+\def\xxauteur{%
+\ifxp
+Xavier \textsc{Pessoles} \\
+Jean-Pierre \textsc{Pupier}
+\else
+\fi}
+
+\def\xxpied{%
+\ifxp
+07 : Étude des systèmes mécanique -- Analyser\\
+Boîte de transfert de 4x4
+\else
+\fi}
+
+
+
+%---------------------------------------------------------------------------
+
+
+\begin{document}
+\ifxp
+\input{style/enteteXP}
+\else
+\input{style/enteteDI}
+\fi
+
+
+\section{Étude préliminaire}
+
+On s'intéresse à la figure ci-dessous présentant un véhicule automobile en phase de virage. La vitesse de déplacement du véhicule est connue au point $M$. $\vectv{M}{1}{\text{Sol}}$ est dirigée suivant $\vect{x}$.
+
+
+\begin{center}
+\includegraphics[width=.9\textwidth]{images/voiture}
+\end{center}
+
+L'angle de virage de la roue droite par rapport à la direction $\vect{z}$ vaut $\alpha_D$. La roue droite est considérée comme motrice. En conséquence, $\vectv{D}{1}{\text{Sol}}$ a la même direction que la roue avant droite. 
+
+\subparagraph{}
+\textit{Reproduire le schéma ci-dessus. On donne $||\vectv{M}{1}{sol}||=30\; km/h$. L'angle de rotation de la roue droite est de $45\degres$. Déterminer graphiquement, sur le schéma la vitesse aux points $B$, $C$, $D$ et $G$. Que peut-on en conclure ?}
+
+\subparagraph{}
+\textit{déterminer l'angle de rotation de la roue gauche $\alpha_G$ du véhicule en fonction de $\alpha_D$, de l'empattement $e$ et de la voie $v$. L'empattement $e$ est la distance $DC$ entre les essieux avant et arrière. La voie $v$ est la distance $DG$ entre le centre des deux roues.}
+
+
+
+\subparagraph{}
+\textit{Proposer un schéma cinématique minimal, à main levée, permettant de prendre en compte que les deux roues ne tournent pas du même angle lors d'un virage. }
+
+
+\subparagraph{}
+\textit{Tracer le champ des vecteurs vitesses sur une largeur de pneu lors d'un virage. Que peut-on en conclure ?}
+
+
+
+\subparagraph{}
+\textit{Déduire de l'étude précédente l'intérêt que peut avoir un différentiel dans une transmission automobile ? }
+
+
+\section{Boîte de transfert}
+
+\subsection{Fonctionnement}
+
+Sur un véhicule de type 4x4, le mouvement de rotation du moteur est transmis à une boîte de vitesse commandée manuellement par un levier permettant de commander 5 rapports de vitesse ainsi que la marche arrière. En sortie de boîte de vitesse, la mouvement de rotation est transmis à l'arbre \textbf{4} de la boîte de transfert. 
+
+%\begin{center}
+%\includegraphics[width=.85\textwidth]{images/af}
+%\end{center}
+
+La boîte de transfert comporte 2 rapports de vitesses commandée par le levier  \textbf{V2}: 
+\begin{itemize}
+\item un premier rapport utilisé sur route qui utilise les pignons 1 et 5;
+\item un second rapport utilisé en tout-terrain qui utilise les pignons 3 ainsi que l'engrenage taillé sur l'arbre 6.
+\end{itemize}
+
+En sortie de la boîte de transfert, le mouvement est transmis vers les essieux avant et arrière. 
+
+Un différentiel composé d'un train épicycloïdal est incorporé à cette boîte de transfert. Il permet aux essieux avant et arrières de tourner à des vitesses différentes. 
+
+En actionnant le levier \textbf{D} il est possible de bloquer le différentiel. Les essieux avant et arrières tournent alors à la même vitesse. 
+
+\subparagraph{}
+\textit{Colorier le plan d'ensemble en utilisant une couleur par classe d'équivalence cinématique.}
+
+
+\subsection{Étude technologique}
+\subparagraph{}
+\textit{Combien la pièce 4 a-t-elle de positions stables ?}
+
+\vspace{.25cm}
+
+Le système constitué des pièces 20, 21, 22, 23, 24 (zone B) est représenté au dessus de l’axe dans une position et au- dessous de l’axe dans une autre position.
+
+\subparagraph{}
+\textit{À quoi sert ce sous-ensemble ? En vous aidant de croquis, expliquer le fonctionnement.}
+
+
+
+\subparagraph{}
+\textit{D'après vous, comment est assurée la lubrification du système ? Comment est assurée la vidange ? Comment est assurée l'étanchéité vis-à-vis du milieu extérieur. }
+
+\subparagraph{}
+\textit{Citer les 4 différentes technologies de roulements présentes dans la boîte de transfert. Indiquer leurs particularités et leurs cas d'utilisation.}
+
+\subparagraph{}
+\textit{On dénote un jeu entre la bague extérieure du roulement \textbf{32} et le flasque \textbf{30} ainsi que la carter \textbf{33}. Quel est son but ?}
+
+\subparagraph{}
+\textit{Proposer un matériau pour l'arbre \textbf{6}. Comment a-t-il été fabriqué ?}
+%
+%L'arbre va transmettre la totalité de la puissance du moteur aux différents essieux (au rendement près). C'est donc une pièce très forte sollicitée mécaniquement.
+%
+%On peut donc utiliser un acier, par exemple un $42 \; Cr\; Mo \; 4$. 
+%
+%\'A partir d'un brut laminé, on va forger la préforme de l'arbre. Les opérations suivantes vont être réalisées en tournage : 
+%\begin{itemize}
+%\item chariotage des cylindres;
+%\item dressage de la face; 
+%\item usinage des gorges,
+%\item réalisation des filetages
+%\end{itemize}
+%
+%La rainure de clavette sera usinée en fraisage (fraise 2 tailles). Enfin, les dents seront taillées par mortaisage (avec pignon ou crémaillère).
+%
+%(Des traitements thermiques seront certainement aussi réalisés).
+
+\subparagraph{}
+\textit{Un palier lisse est présent entre l'arbre \textbf{9} et la pièce \textbf{25}. Quel est son but ? Proposer un matériau ? Comment a-t-il été fabriqué ?}
+
+\subsection{Étude cinématique}
+
+%\subparagraph{}
+%\textit{Identifiez les différentes classes d'ensemble cinématique en coloriant le dessin d'ensemble. On précise que les pièces \textbf{10} (couronne à denture intérieure), \textbf{11}  (pignon - satellite), \textbf{9} (pignon - planétaire) et \textbf{25} (porte-satellite) forment un train épicycloïdal\footnote{Seules les pièces principales des classes d'équivalences cinématiques sont citées.}.}
+
+
+\subparagraph{}
+\textit{Quelle pièce permet le passage de la vitesse "route" à la vitesse 4x4" via le levier \textbf{V2} ? Quel est le mouvement de cette pièce ? Comment est-elle mise en mouvement ? Expliquer comment elle permet de sélectionner chacune des deux vitesses. Vous pourrez éventuellement vous aider de schémas.}
+
+\subparagraph{}
+\textit{Quelle influence a le levier \textbf{D} sur le fonctionnement de la boîte de transfert ?}
+
+
+\subparagraph{}
+\textit{Tracer le schéma cinématique minimal de la boîte de transfert.}
+
+
+\subparagraph{}
+\textit{Déterminer les deux rapports de vitesse permis par la boîte de transfert. On précise que $d_1 = d_{13} = 86\; mm$, $d_3=54\; mm$, $d_5=56\; mm$, $d_6=88\; mm$.}
+
+
+\subsection{Étude du train épicycloïdal}
+
+\subparagraph{}
+\textit{Tracer le schéma cinématique du train épicycloïdal dans les deux vues.}
+%
+%  Mettre en évidence par des figures planes, les vecteurs instantanés de rotations suivants :
+%\begin{itemize}
+%\item  rotation de l'arbre d'entrée du train (porte-satellite) par rapport au bâti : $\vecto{13}{33}$; 
+%\item  rotation de l'arbre essieu avant par rapport au bâti : $\vecto{9}{33}$; 
+%\item  rotation de l'arbre essieu arrière par rapport au bâti : $\vecto{10}{33}$; 
+%\item  rotation du satellite par rapport au porte-satellite : $\vecto{11}{13}$.
+%\end{itemize}
+%Vous indiquerez les centres des liaisons ainsi que les points de contacts entre les engrenages. Chacun de ces points pourront être ramenés dans un seul plan. Lors du fonctionnement du train épicycloïdal, ces points seront toujours alignés sur suivant le porte-satellite \textbf{13}.
+%}
+%
+%\subparagraph{}
+%\textit{Tracer le graphe des liaisons associé au train épicycloïdal.}
+%
+%\subparagraph{}
+%\textit{Après avoir écrit la relation de roulement sans glissement entre \textbf{10} et \textbf{11}, décomposer le vecteur vitesse pour obtenir une relation entre : $R_{10}$, $R_{11}$, $\omega_{10/33}$, $\omega_{13/11}$ et $\omega_{13/33}$.}
+%
+%\subparagraph{}
+%\textit{Après avoir écrit la relation de roulement sans glissement entre \textbf{11} et \textbf{9}, décomposer le vecteur vitesse pour obtenir une relation entre : $R_9$, $R_{11}$, $\omega_{9/33}$ et $\omega_{13/11}$ et $\omega_{13/33}$.}
+%
+%\subparagraph{}
+%\textit{Déterminer une relation géométrique permettant de lier $R_{9}$, $R_{11}$ et $R_{10}$.}
+%
+%\subparagraph{}
+%\textit{A partir des 3 relations précédentes, montrer que : 
+%$$
+%\dfrac{5}{3}\omega_{(12/33)} = \omega_{(10/33)}+\omega_{(9/33)}
+%$$
+\subparagraph{}
+\textit{Déterminer la relation entre les vitesses des arbres 6, 7 et 9 par rapport au bâti. On précise que  $R_{10}=42\;mm$, $R_{9}=21\;mm$, $R_{11}=10,5 \;mm$.}
+
+
+
+\subparagraph{}
+\textit{Que se passe-t-il si le train avant est bloqué dans un obstacle ? Que se passe-t-il si le train arrière est bloqué dans un obstacle ? Que se passe-t-il si lorsque le différentiel est bloqué ?}
+
+\end{document}
+
+
