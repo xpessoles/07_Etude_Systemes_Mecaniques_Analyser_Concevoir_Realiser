@@ -81,6 +81,8 @@ Conception d'un treuil hydraulique
 
 \section{Mise en situation}
 
+\ifprof
+\else
 \begin{minipage}[c]{.49\linewidth}
 Un navire chasseur de mines est équipé au niveau du pont arrière d'une grue hydraulique destinée à la mise à l'eau ou à la mise au sec de charges dont le poids maximum est de 7,5 kN.
 
@@ -136,8 +138,13 @@ L'ensemble est piloté à partir d'un pupitre portatif représenté sur la figur
 \textit{Figure 3 : Pupitre de commande}
 \end{center}
 \end{minipage} 
+\fi
 
 \section{Fonctionnement du treuil}
+
+
+\ifprof
+\else
 La figure 4 présente les 3 vues extérieures du treuil. Celui-ci est boulonné à l'extrémité de la flèche. L'arbre de sortie supporte une bobine à enroulement spiral permettant des man\oe{}uvres rapides. Le treuil est muni de deux moteurs hydrauliques protégés des chocs par une structure tubulaire externe. 
 
 \begin{center}
@@ -212,7 +219,12 @@ En cas de chute de pression hydraulique, le frein à lamelle bloque le réducteu
 %\item Les formes externes ne doivent pas retenir l'eau des intempéries et doivent faciliter l'entretien périodique des installations de peinture. 
 %\end{itemize}
 
+\fi
 \section{Conception de l'arbre primaire et du frein à lamelles}
+
+
+\ifprof
+\else
 Cette conception se fait à l'échelle 1 sur un format A3 horizontal. Les formes locales du carter et de son couvercle y seront définies. Les exigences à respecter sont listées dans le diagramme ci-dessous.
  
 \begin{center}
@@ -226,11 +238,19 @@ Cette conception se fait à l'échelle 1 sur un format A3 horizontal. Les formes
 %\end{itemize}
 %
 %Les ressorts de compression sont constitués d'un fil d'acier au silicium de 2 mm de diamètre enroulé sur un diamètre moyen de 8 mm avec 8 spires utiles. Leur coefficient de raideur unitaire est de 4 daN/mm.
-
+\fi
 \subparagraph{}
 \textit{Quel est le couple de freinage nécessaire pour bloquer la charge maximale avec une marge de sécurité de 30\%.}
 
 \ifprof
+\begin{corrige}
+La charge maximale que le treuil doit pouvoir lever est de 7,5 kN. Le diamètre maximal d'enroulement sur l'arbre de sortie est de 500 mm. Le couple maximal sur l'arbre de sortie est donc $C_S = 500\cdot 10^{-3}\cdot 7,5\cdot 10^{3} = 3\, 750 \; \text{Nm}.$
+
+On a : $\dfrac{\omega_S}{\omega_E} =\dfrac{1}{k_T}= (-1)^2 \dfrac{20\cdot 15}{80\cdot 70}$ et dans l'hypothèse ou le rendement est unitaire, on a : $C_E = \dfrac{C_S}{k_T} \simeq 201\; \text{Nm}$. 
+
+En tenant compte de le marge de sécurité de 30\%, le couple à fournir est de $260\; \text{Nm}$.
+
+\end{corrige}
 \else
 \fi
 
@@ -238,11 +258,34 @@ Cette conception se fait à l'échelle 1 sur un format A3 horizontal. Les formes
 \subparagraph{}
 \textit{Les représentations de face des lamelles étant fournies ci-dessous, rechercher un triplet optimal \{nombre de ressorts, nombre de lamelles, écrasement de précharge des ressorts\}. Le coefficient de frottement au niveau des lamelles sera minoré de 0,08.}
 
+\ifprof
+\begin{corrige}
+Adoptons un couple de frottement de 0,12 entre les lamelles. Si on opte pour 20 lamelles, il y a $n=21$ surfaces frottantes. On a alors $fn\dfrac{2}{3} \dfrac{R^3-r^3}{R^2-r^2} = 0,12\cdot 21 \cdot \dfrac{2}{3} \cdot\dfrac{37,5^3-25^3}{37,5^2-25^2}=0,0798$. L'effort a fournir est donc de 2 358 N.
+
+Les ressorts ont une raideur de 40 N/mm. On a donc une longueur de ressort nécessaire de 59 mm. Il est donc possible d'utiliser 6 ressorts en parallèles avec une longueur d'écrasement  de 10 mm.
+ 
+\end{corrige}
+\else
+\fi
+
 \subparagraph{}
 \textit{Déterminer la section utile du piston pour désactiver le frein avec une pression de 20 bars.}
 
+\ifprof
+\begin{corrige}
+Pour désactiver le frein, 5 MPa sont nécessaires. La section de piston nécessaire est donc $S = \dfrac{F}{P} \simeq 48\,  \text{mm}^2 $ 
+\end{corrige}
+\else
+\fi
+
 \subparagraph{}
 \textit{Effectuer le dessin d'ensemble du montage de l'arbre primaire en coupe diamétrale.}
+
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
 
 
 \begin{center}
