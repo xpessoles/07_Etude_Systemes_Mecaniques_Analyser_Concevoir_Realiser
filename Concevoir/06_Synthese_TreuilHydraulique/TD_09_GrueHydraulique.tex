@@ -9,8 +9,8 @@
 %Sinon compilation Damien
 
 \newif\ifprof
-%\proftrue
-\proffalse
+\proftrue
+%\proffalse
 
 \newif\ifxp
 \xptrue
@@ -244,11 +244,11 @@ Cette conception se fait à l'échelle 1 sur un format A3 horizontal. Les formes
 
 \ifprof
 \begin{corrige}
-La charge maximale que le treuil doit pouvoir lever est de 7,5 kN. Le diamètre maximal d'enroulement sur l'arbre de sortie est de 500 mm. Le couple maximal sur l'arbre de sortie est donc $C_S = 500\cdot 10^{-3}\cdot 7,5\cdot 10^{3} = 3\, 750 \; \text{Nm}.$
+La charge maximale que le treuil doit pouvoir lever est de 7,5 kN. Le diamètre maximal d'enroulement sur l'arbre de sortie est de 500 mm soit 250 mm de rayon. Le couple maximal sur l'arbre de sortie est donc $C_S = 250\cdot 10^{-3}\cdot 7,5\cdot 10^{3} = 1\, 875 \; \text{Nm}.$
 
-On a : $\dfrac{\omega_S}{\omega_E} =\dfrac{1}{k_T}= (-1)^2 \dfrac{20\cdot 15}{80\cdot 70}$ et dans l'hypothèse ou le rendement est unitaire, on a : $C_E = \dfrac{C_S}{k_T} \simeq 201\; \text{Nm}$. 
+On a : $\dfrac{\omega_S}{\omega_E} =\dfrac{1}{k_T}= (-1)^2 \dfrac{20\cdot 15}{80\cdot 70}\simeq 0,0536$ et dans l'hypothèse ou le rendement est unitaire, on a : $C_E = \dfrac{C_S}{k_T} \simeq 100,5\; \text{Nm}$. 
 
-En tenant compte de le marge de sécurité de 30\%, le couple à fournir est de $260\; \text{Nm}$.
+En tenant compte de le marge de sécurité de 30\%, le couple à fournir est de $131\; \text{Nm}$.
 
 \end{corrige}
 \else
@@ -260,9 +260,9 @@ En tenant compte de le marge de sécurité de 30\%, le couple à fournir est de 
 
 \ifprof
 \begin{corrige}
-Adoptons un couple de frottement de 0,12 entre les lamelles. Si on opte pour 20 lamelles, il y a $n=21$ surfaces frottantes. On a alors $fn\dfrac{2}{3} \dfrac{R^3-r^3}{R^2-r^2} = 0,12\cdot 21 \cdot \dfrac{2}{3} \cdot\dfrac{37,5^3-25^3}{37,5^2-25^2}=0,0798$. L'effort a fournir est donc de 2 358 N.
+Adoptons un facteur de frottement de 0,12 entre les lamelles. Si on opte pour 20 lamelles, il y a $n=21$ surfaces frottantes. On a alors $fn\dfrac{2}{3} \dfrac{R^3-r^3}{R^2-r^2} = 0,12\cdot 21 \cdot \dfrac{2}{3} \cdot\dfrac{37,5^3-25^3}{37,5^2-25^2}=0,0798$. L'effort a fournir est donc de 1641 N.
 
-Les ressorts ont une raideur de 40 N/mm. On a donc une longueur de ressort nécessaire de 59 mm. Il est donc possible d'utiliser 6 ressorts en parallèles avec une longueur d'écrasement  de 10 mm.
+Les ressorts ont une raideur de 40 N/mm. On a donc une longueur de ressort nécessaire de 41 mm. Il est donc possible d'utiliser 6 ressorts en parallèles avec une longueur d'écrasement  de 6,9 mm.
  
 \end{corrige}
 \else
@@ -273,7 +273,7 @@ Les ressorts ont une raideur de 40 N/mm. On a donc une longueur de ressort néce
 
 \ifprof
 \begin{corrige}
-Pour désactiver le frein, 5 MPa sont nécessaires. La section de piston nécessaire est donc $S = \dfrac{F}{P} \simeq 48\,  \text{mm}^2 $ 
+Pour désactiver le frein, 2 MPa sont nécessaires. La section de piston nécessaire est donc $S = \dfrac{F}{P} \simeq 820,5\,  \text{mm}^2 $ soiit un disque de diamètre 33 mm. 
 \end{corrige}
 \else
 \fi
