@@ -1,0 +1,91 @@
+\documentclass[10pt]{article}
+\input{style/coursHeadings}
+\input{style/programHeadings}
+\input{style/macros_SII}
+\input{style/macros_Titres}
+\input{style/macros_Frames}
+
+%Si le boolen xp est vrai : compilation pour xabi
+%Sinon compilation Damien
+
+\newif\ifprof
+%\proftrue
+\proffalse
+
+\newif\ifxp
+\xptrue
+%\xpfalse
+
+\newif\iftd
+\tdtrue
+%\tdfalse
+
+
+\usepackage[%
+    pdftitle={},
+    pdfauthor={Xavier Pessoles},
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=magenta]{hyperref}
+
+
+\def\discipline{Sciences Industrielles de l'Ingénieur}
+\def\xxtitre{%
+\ifxp
+7 : Étude des systèmes mécaniques : Analyser -- Concevoir -- Réaliser
+\else
+\fi
+}
+
+\def\xxsoustitre{%
+\ifxp
+Réaliser -- Chapitre 4 -- Spécification Géométrique des Produits
+\else
+\fi}
+
+\def\xxauteur{%
+\ifxp
+Xavier \textsc{Pessoles}
+\else
+\fi}
+
+\def\xxpied{%
+\ifxp
+7 : Étude des systèmes mécaniques : Analyser -- Concevoir -- Réaliser\\
+Réaliser -- Chapitre 4 -- Spécification Géométrique des Produits -- Cours
+\else
+\fi}
+
+
+
+%---------------------------------------------------------------------------
+
+
+\begin{document}
+
+\input{style/enteteXP}
+
+
+\begin{warn}
+Je compile avec pdfLaTeX.
+\end{warn}
+\setlength{\parskip}{0ex plus 0.2ex minus 0ex}
+ \renewcommand{\contentsname}{}
+ \renewcommand{\baselinestretch}{1}
+
+\tableofcontents
+
+ \renewcommand{\baselinestretch}{1.2}
+\setlength{\parskip}{2ex plus 0.5ex minus 0.2ex}
+
+
+
+\section{Titre 1}
+
+\subsection{Sous titre 1}
+\begin{thebibliography}{2}
+\bibitem{xx}{xx}
+\end{thebibliography}
+\end{document}
+
+
