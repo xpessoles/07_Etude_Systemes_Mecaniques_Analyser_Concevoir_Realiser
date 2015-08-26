@@ -1,0 +1,145 @@
+\documentclass[11pt,oneside]{article}
+\input{coursHeadings}
+\usepackage[final]{pdfpages} 
+\usepackage[%
+    pdftitle={TD Conception},
+    pdfauthor={Xavier Pessoles},
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=magenta]{hyperref}
+
+
+
+% \makeatletter \let\ps@plain\ps@empty \makeatother
+%% DEBUT DU DOCUMENT
+%% =================
+\sloppy
+\hyphenpenalty 10000
+
+\newcommand{\Pointilles}[1][3]{%
+\multido{}{#1}{\makebox[\linewidth]{\dotfill}\\[\parskip]
+}}
+
+
+\begin{document}
+
+
+\newboolean{prof}
+\setboolean{prof}{false}
+%------------- En tetes et Pieds de Pages ------------
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+
+\fancyhead{}
+\fancyhead[L]{%
+\begin{minipage}[c]{1.6cm}
+\includegraphics[width=2cm]{png/logo_ptsi.png}%
+\end{minipage}
+\rule{2cm}{.5pt}
+}
+
+\fancyhead[C]{\rule{11cm}{.5pt}}
+
+\fancyhead[R]{%
+\begin{minipage}[c]{3cm}
+\begin{flushright}
+\footnotesize{\textit{\textsf{Sciences Industrielles\\ pour l'Ingénieur}}}%
+\end{flushright}
+\end{minipage}
+}
+
+\renewcommand{\footrulewidth}{0.2pt}
+
+\fancyfoot[C]{\footnotesize{\bfseries \thepage}}
+\fancyfoot[L]{\footnotesize{2012 -- 2013} \\ X. \textsc{Pessoles}}
+\ifthenelse{\boolean{prof}}{%
+\fancyfoot[R]{\footnotesize{TD -- CI 4 -- Conception des mécanismes -- P}}
+}{%
+\fancyfoot[R]{\footnotesize{TD -- CI 4 -- Conception des mécanismes}}
+}
+
+
+%\begin{center}
+%\textit{Centre d'intérêt}
+%\end{center}
+
+
+\begin{center}
+ \huge\textsc{CI 4 -- Conception des mécanismes}
+\end{center}
+
+\begin{center}
+ \LARGE\textsc{Conception des liaisons encastrement démontable}
+\end{center}
+
+\begin{center}
+ \large\textsc{Poulie}
+\end{center}
+\vspace{.5cm}
+
+\begin{flushright}
+\textit{D'après ressources de Jean-Pierre Pupier.}
+\end{flushright}
+%
+%\begin{minipage}[c]{.45\linewidth}
+%\begin{center}
+%\includegraphics[height=3cm]{png/moteur}
+%
+%\textit{Moteur de modélisme}
+%\end{center}
+%\end{minipage}\hfill
+%\begin{minipage}[c]{.45\linewidth}
+%\begin{center}
+%\includegraphics[height=4cm]{png/moteur_3D}
+%
+%\textit{Représentation d'un moteur de modélisme}
+%\end{center}
+%\end{minipage}
+
+\begin{contexte}
+\begin{itemize}
+\item Objectif pédagogique : concevoir une liaison encastrement démontable
+\item Objectif technique : 
+\begin{itemize}
+\item Proposer une solution technologique permettant d'assembler une poulie et un arbre via une pièce intermédiaire à concevoir. 
+\end{itemize}
+\end{itemize}
+\end{contexte}
+
+\section*{Conception de la liaison entre un arbre et une poulie}
+On veut réaliser une liaison complète entre l'arbre d'un moteur électrique et une poulie. Le diamètre intérieur de la poulie ne correspond pas au diamètre de l'arbre. On va donc intercaler une bague intermédiaire.
+
+La liaison arbre/bague se fait par clavetage libre pour l'arrêt en rotation et par appui sur épaulement à gauche et vis H M10-30 + rondelle, pour l'arrêt axial.
+
+La liaison bague/poulie se fait par 3 vis CHC M6.
+
+Les pièces existantes (arbre moteur, poulie) peuvent être usinées mais on ne peut pas rajouter de matière.
+
+Les dimensions de la bague intermédiaire sont au choix.
+
+\section*{Travail demandé}
+
+\textbf{Complétez le dessin en coupe.}
+
+On précisera les ajustements entre les pièces. 
+
+
+
+\textit{Aide à la solution}
+
+\begin{center}
+\includegraphics[width=.5\textwidth]{png/aide}
+\end{center}
+
+
+\newpage 
+
+\vspace*{\stretch{1}}
+
+\begin{center}
+\includegraphics[width=.95\textwidth]{png/dessin}
+\end{center}
+
+\vspace*{\stretch{1}}
+
+\end{document}
