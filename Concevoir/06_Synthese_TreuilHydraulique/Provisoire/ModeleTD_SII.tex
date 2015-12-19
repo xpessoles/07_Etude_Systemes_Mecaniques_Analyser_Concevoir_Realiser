@@ -1,0 +1,503 @@
+\documentclass[10pt,fleqn]{article} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={CIN : Cinématique du solide},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+    
+\input{style/new_style}
+\input{style/macros_SII}
+
+\usepackage{multicol}
+\usepackage{multirow}
+\fichetrue
+%\fichefalse
+
+\proftrue
+%\proffalse
+
+\tdtrue
+%\tdfalse
+
+\courstrue
+\coursfalse
+
+\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+
+\def\classe{PTSI}
+\def\xxnumpartie{Partie 3}
+\def\xxpartie{Étude cinématique des systèmes de solides de la chaîne d'énergie  \\
+Analyser, Modéliser, Résoudre}
+
+\def\xxnumchapitre{Chapitre 4}
+\def\xxchapitre{Étude des chaînes fermées : Détermination des lois Entrée -- Sortie}
+
+\def\xxtitreexo{Prothèse Active Transtibiale}
+\def\xxsourceexo{\hspace{.2cm} D'après concours Mines-Ponts -- 2013.}
+
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{20}
+\def\xxonglet{Part. 1 -- Ch. 3}
+
+\def\xxactivite{TD 1}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}\\
+\noindent \textbf{Résoudre :} à partir des modèles retenus :
+\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+\item choisir une méthode de résolution analytique, graphique, numérique;
+\item mettre en \oe{}uvre une méthode de résolution.
+\end{itemize}
+\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+\item \textit{Rés -- C1.1 :} Loi entrée sortie géométrique et cinématique -- Fermeture géométrique.
+\end{itemize}
+%
+%\noindent \textit{Mod2 -- C4.1 :} Représentation par schéma bloc.
+}}
+
+\def\xxfigures{
+\includegraphics[width=.8\textwidth]{images/prot_01}
+}%figues de la page de garde
+
+\def\xxpied{%
+Partie 3 -- Étude cinématique des systèmes  \\
+Ch 5 : Cinématique du solide -- \xxactivite%
+}
+
+
+\setcounter{secnumdepth}{5}
+%---------------------------------------------------------------------------
+
+
+\begin{document}
+%\chapterimage{png/Fond_Cin}
+\input{style/new_pagegarde}
+\vspace{10cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+\section{Mise en situation}
+
+\ifprof
+\else
+\begin{minipage}[c]{.49\linewidth}
+Un navire chasseur de mines est équipé au niveau du pont arrière d'une grue hydraulique destinée à la mise à l'eau ou à la mise au sec de charges dont le poids maximum est de 7,5 kN.
+
+Les conditions d'emploi de cette grue ont conduit à opter pour une structure géométriquement variable et notamment repliable avec un faible encombrement lorsqu'elle n'est pas en service. La structure porteuse est constituée de trois parties articulées. 
+\end{minipage} \hfill
+\begin{minipage}[c]{.49\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/Grue}
+
+\textit{Figure 1 : Implantation de la grue sur le pont d'un bateau}
+\end{center}
+\end{minipage} 
+
+\vspace{.25cm}
+
+
+\begin{minipage}[c]{.6\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/Grue_02}
+
+\textit{Figure 2 : Vue générale -- échelle approximative 1:80}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.38\linewidth}
+
+Le corps \textbf{31} pivote autour d'un axe vertical. Ce corps est solidaire d'une plateforme au dessous de laquelle un moto réducteur hydraulique et un couple pignon roue intérieure (ayant le diamètre approximatif de la plateforme) permettent d'actionner la rotation d'axe vertical.
+
+Le portique \textbf{32}  est articulé sur \textbf{31}. Il est actionné par un vérin hydraulique. 
+
+Une flèche \textbf{35} est articulée sur \textbf{32}. Elle est actionnée par un vérin hydraulique. 
+\end{minipage}
+
+\vspace{.25cm}
+
+A l'extrémité de la flèche, un treuil \textbf{38} est équipé de deux moteurs hydrauliques réglables électroniquement afin d'assurer une tension constante du câble pour éviter les à-coups dus aux mouvements de la houle pendant l'ascension et la descente de la charge explosive. 
+
+
+\begin{minipage}[c]{.49\linewidth}
+
+L'ensemble est piloté à partir d'un pupitre portatif représenté sur la figure 3 :
+\begin{itemize}
+\item le levier à deux positions C2 commande la montée ou la descente de la flèche (vérin \textbf{36 -- 37});
+\item le levier à deux positions C3 commande l'inclinaison du portique (vérin \textbf{33 --34});
+\item les commandes de hissage et de rotation peuvent être combinés et sont regroupées sur le même levier;
+\item le sélecteur C1 permet d'engager le système de suivi de houle ou de produire une descente à vide plus rapide.
+\end{itemize}
+
+\end{minipage} \hfill
+\begin{minipage}[c]{.49\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/Pupitre}
+
+\textit{Figure 3 : Pupitre de commande}
+\end{center}
+\end{minipage} 
+\fi
+
+\section{Fonctionnement du treuil}
+
+
+\ifprof
+\else
+La figure 4 présente les 3 vues extérieures du treuil. Celui-ci est boulonné à l'extrémité de la flèche. L'arbre de sortie supporte une bobine à enroulement spiral permettant des man\oe{}uvres rapides. Le treuil est muni de deux moteurs hydrauliques protégés des chocs par une structure tubulaire externe. 
+
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/Treuil}
+
+\textit{Figure 4 : Aspect extérieur du treuil -- Échelle approximative 1:14}
+\end{center}
+
+\begin{minipage}[c]{.49\linewidth}
+Le treuil est schématisé sur la figure 5. Outre le dispositif réducteur de vitesse formé de deux trains d'engrenages cylindriques à denture droite, il est constitué des éléments suivants : 
+\begin{itemize}
+\item d'un moteur hydraulique principal [MP];
+\item d'un moteur hydraulique de suivi de houle [MSH];
+\item d'un système anti dévireur (roue libre);
+\item d'un frein hydraulique à lamelles [FH];
+\item d'un compte tours de fin de course [CT].
+\end{itemize}
+
+\end{minipage} \hfill
+\begin{minipage}[c]{.49\linewidth}
+\begin{center}
+\includegraphics[width=.8\textwidth]{images/schema}
+
+\textit{Figure 5 : Schéma du réducteur de treuil}
+\end{center}
+\end{minipage} 
+
+\vspace{.25cm}
+
+
+\begin{minipage}[c]{.49\linewidth}
+Lors du fonctionnement en hissage (croquis 1 figure 6) ou en largage (croquis 2) sans houle, le [MSH] n'est pas mis en pression (sélecteur C1 au milieu). Il peut alors tourner dans les deux sens sans résistance notable. Il se comporte comme une pompe en circuit fermé. Seul le [MP] participe à la montée ou à la descente de la charge. 
+
+Lors du largage avec mouvement de houle important (croquis 3), sélecteur C1 en bas, le [MP] est en mouvement de descente et le [MSH] est entraîné par la pression d'huile dans le sens de hissage pour maintenir une tension constante mais son couple est insuffisant pour soulever la charge. En revanche, sa position en prise directe sur l'arbre de la poulie d'enroulement permet d'enrouler rapidement le câble lorsque la charge est allégée par les efforts d'inertie dus au mouvement de la houle montante. 
+
+En descendant, la houle augmente la tension du câble, le [MSH] est alors entraîné en sens contraire comme une pompe (croquis 4) et l'huile est alors renvoyée au réservoir basse pression.
+
+Lors du largage du câble à vide (croquis 5), le [MSH] entraîne dans le sens de la descente. 
+
+En cas de chute de pression hydraulique, le frein à lamelle bloque le réducteur. 
+
+\end{minipage} \hfill
+\begin{minipage}[c]{.49\linewidth}
+\begin{center}
+\includegraphics[width=\textwidth]{images/Treuil_02}
+
+\textit{Figure 6 : Phases de fonctionnement}
+\end{center}
+\end{minipage} 
+
+
+%\section{Étude de conception}
+
+%On se propose dans un premier temps de concevoir le réducteur du treuil. %On donne pour cela sur le document annexe à l'échelle $1:2$, les dimensions exactes et les positions approximatives des éléments fondamentaux du réducteur. 
+
+%\begin{itemize}
+%\item Le moteur principal 2 est fixé au réducteur par 5 vis HM 12.
+%\item Le moteur de suivi de houle 3 est de géométrie identique.
+%\item Le compte tours 4 est fixé au réducteur par trois vis CHC M8.
+%\item Le pignon arbré sur l'arbre d'entrée 5 a pour caractéristiques un module de 3 et 20 dents.
+%\item Le pignon moulé 6 sur l'arbre intermédiaire a pour caractéristiques un module de 3 et 80 dents.
+%\item Le pignon arbré 7 sur l'arbre intermédiaire a pour caractéristiques un module de 5 et 15 dents.
+%\item La roue dentée 8 moulée présente sur l'arbre de sortie a pour caractéristiques un module de 5 et 70 dents.
+%\item Une roue libre (à représenter en coupe médiane) est située entre 6 et 7.
+%\item Le diamètre d'enroulement du câble sur la bobine est de 500\; mm.
+%\item le diamètre minimum d'enroulement du câble est de 200 \; mm.
+%\item L'enroulement est purement spiral.
+%\item Le diamètre du câble en acier est de 10 mm.
+%\item Le carter du réducteur(1a) est en fonte lamellaire moulée. 
+%\item Il est constitué de deux parties dont un couvercle (1b) situé du côté des moteurs et du compte tour qui s'ouvre sur toute l'étendue de la face pour permettre le montage des constituants internes du réducteur.
+%\item Le lubrification se fait par bain d'huile.
+%\item Les formes externes ne doivent pas retenir l'eau des intempéries et doivent faciliter l'entretien périodique des installations de peinture. 
+%\end{itemize}
+
+\fi
+\section{Conception de l'arbre primaire et du frein à lamelles}
+
+
+\ifprof
+\else
+Cette conception se fait à l'échelle 1 sur un format A3 horizontal. Les formes locales du carter et de son couvercle y seront définies. Les exigences à respecter sont listées dans le diagramme ci-dessous.
+ 
+\begin{center}
+\includegraphics[width=\textwidth]{images/SysML/ArbrePrimaire.png}
+\end{center}
+%\begin{itemize}
+%\item Liaison encastrement démontable du moteur principal 2 sur le couvercle du carter.
+%\item Accouplement rigide avec léger rotulage autorisé entre l'arbre de sortie du moteur et l'arbre primaire 5. 
+%\item Liaison pivot par roulements par rapport au carter et son couvercle.
+%\item Le frein à lamelles à commande hydraulique. Il doit bloquer l'arbre primaire en l'absence de pression d'huile. On donne sur la figure 6 le schéma de principe de ce frein.
+%\end{itemize}
+%
+%Les ressorts de compression sont constitués d'un fil d'acier au silicium de 2 mm de diamètre enroulé sur un diamètre moyen de 8 mm avec 8 spires utiles. Leur coefficient de raideur unitaire est de 4 daN/mm.
+\fi
+\subparagraph{}
+\textit{Quel est le couple de freinage nécessaire pour bloquer la charge maximale avec une marge de sécurité de 30\%.}
+
+\ifprof
+\begin{corrige}
+La charge maximale que le treuil doit pouvoir lever est de 7,5 kN. Le diamètre maximal d'enroulement sur l'arbre de sortie est de 500 mm soit 250 mm de rayon. Le couple maximal sur l'arbre de sortie est donc $C_S = 250\cdot 10^{-3}\cdot 7,5\cdot 10^{3} = 1\, 875 \; \text{Nm}.$
+
+On a : $\dfrac{\omega_S}{\omega_E} =\dfrac{1}{k_T}= (-1)^2 \dfrac{20\cdot 15}{80\cdot 70}\simeq 0,0536$ et dans l'hypothèse ou le rendement est unitaire, on a : $C_E = \dfrac{C_S}{k_T} \simeq 100,5\; \text{Nm}$. 
+
+En tenant compte de le marge de sécurité de 30\%, le couple à fournir est de $131\; \text{Nm}$.
+
+\end{corrige}
+\else
+\fi
+
+
+\subparagraph{}
+\textit{Les représentations de face des lamelles étant fournies ci-dessous, rechercher un triplet optimal \{nombre de ressorts, nombre de lamelles, écrasement de précharge des ressorts\}. Le coefficient de frottement au niveau des lamelles sera minoré de 0,08.}
+
+\ifprof
+\begin{corrige}
+Adoptons un facteur de frottement de 0,12 entre les lamelles. Si on opte pour 20 lamelles, il y a $n=21$ surfaces frottantes. On a alors $fn\dfrac{2}{3} \dfrac{R^3-r^3}{R^2-r^2} = 0,12\cdot 21 \cdot \dfrac{2}{3} \cdot\dfrac{37,5^3-25^3}{37,5^2-25^2}=0,0798$. L'effort a fournir est donc de 1641 N.
+
+Les ressorts ont une raideur de 40 N/mm. On a donc une longueur de ressort nécessaire de 41 mm. Il est donc possible d'utiliser 6 ressorts en parallèles avec une longueur d'écrasement  de 6,9 mm.
+ 
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}
+\textit{Déterminer la section utile du piston pour désactiver le frein avec une pression de 20 bars.}
+
+\ifprof
+\begin{corrige}
+Pour désactiver le frein, 2 MPa sont nécessaires. La section de piston nécessaire est donc $S = \dfrac{F}{P} \simeq 820,5\,  \text{mm}^2 $ soiit un disque de diamètre 33 mm. 
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}
+\textit{Effectuer le dessin d'ensemble du montage de l'arbre primaire en coupe diamétrale.}
+
+\ifprof
+\begin{corrige}
+\end{corrige}
+\else
+\fi
+
+
+\begin{center}
+\includegraphics[width=.4\textwidth]{images/lamelles}\hfill
+\includegraphics[width=.45\textwidth]{images/frein}
+
+\textit{Figure 7 : Schémas des lamelles internes, externes et du frein à lamelles}
+\end{center}
+
+\section{Deuxième étape : Conception de l'arbre intermédiaire et de l'antidévireur}
+
+Cette conception se fera sur un forma A3 tenu horizontalement à l'échelle 1. Les exigences à respecter sont données dans le diagramme ci-dessous.
+
+\begin{center}
+\includegraphics[width=\textwidth]{images/SysML/ArbreIntermediaire}
+\end{center}
+
+%La ligne d'arbre intermédiaire doit assurer plusieurs fonctions :
+%\begin{itemize}
+%\item liaison encastrement démontable du compte tours 4 sur le couvercle 1b du carter;
+%\item accouplement rigide avec léger rotulage entre l'arbre du compte tours (4) et l'arbre intermédiaire (7) du réducteur de treuil;
+%\item liaison pivot par deux roulements de l'arbre intermédiaire 7 par rapport au carter;
+%\item guidage en rotation par deux roulements du pignon 6 par rapport à l'arbre 7
+%\item dispositif antidévireur à rouleaux cylindriques entre 6 et 7. LA coupe BB du document annexe précise une architecture possible de ce dispositif. 
+%\end{itemize}
+
+
+\begin{minipage}[c]{.6\linewidth}
+\subparagraph{}
+\textit{Reproduire la figure ci-contre et représenter la condition d'équilibre limite du rouleau en phase d'arc boutement. Déduire l'expression de Hmini conditionnant le dégagement dans la bague interne en fonction de $R$ : rayon de la bague externe, $r$ rayon du rouleau et de $\varphi$ : angle de frottement.
+Calculer la valeur de Hmin pour $R=47,5$, $r=5$ et $\tan\varphi = 0,07$.}
+
+\end{minipage} \hfill
+\begin{minipage}[c]{.38\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/rouelibre}
+
+\textit{Figure 8 : Étude de la roue libre}
+\end{center}
+\end{minipage} 
+
+
+\subparagraph{}
+\textit{Quel serait le couple transmis par la roue libre lors du soulèvement d'une charge de 7,5 kN avec une marge de 30\%.
+La roue libre comporte 8 rouleaux de largeur $L=20\;mm$ et la hauteur du dégagement est $H=37,2\; mm$. Déterminer la valeur de la densité linéique d'effort de contact entre un rouleau et la bague externe dans les conditions ci-dessus.
+Proposer des matériaux cohérents pour les rouleaux et les bagues de l'antidévireur.}
+
+
+\subparagraph{}
+\textit{Effectuer le dessin d'ensemble du montage de l'arbre intermédiaire de la roue libre en coupe diamétrale.}
+
+
+\section{Troisième étape : conception de l'arbre de sortie du réducteur}
+
+Cette conception se fera sur format A3 en tenant compte des éléments précédents. Les exigences à respecter sont listées dans le diagramme des exigences suivant. 
+
+\begin{center}
+\includegraphics[width=\textwidth]{images/SysML/ArbreSortie}
+\end{center}
+
+
+
+
+\subparagraph{}
+\textit{Déterminer le nombre de tours $N$ que le câble peut effectuer autour de la poulie. 
+Déterminer la longueur d'enroulement du câble au ième tour à partir du début de l'enroulement de la bobine vide.
+Déduire la longueur totale $L$ du câble qui peut être enroulé sur la bobine pleine.}
+
+\subparagraph{}
+\textit{Effectuer le graphe de la vitesse d'enroulement du câble en fonction du temps pour une vitesse de moteur principal de 1000 tours/min.
+L'accélération qui en découle a-t-elle une influence importante sur la tension du câble ?}
+
+\subparagraph{}
+\textit{Effectuer le dessin d'ensemble du montage de l'arbre de sortie et de la bobine en coupe diamétrale.}
+
+
+\section{Quatrième étape :  conception de l'articulation du portique par rapport à la flèche}
+
+Cette conception se fera sur deux formats A3. Une première vue à l'échelle 1/4 donnera l'allure de l'ensemble de la liaison articulation, mais cette représentation s'avère insuffisante pour fournir les détails structurels et dimensionnels de l'étude. Ces détails seront donc dessinés à l'échelle 1 sur une seconde feuille, pour une partie seulement de la liaison. 
+
+La masse de la flèche est évaluée à 260 kg, celle du treuil à 100 kg. Les centres de gravité sont représentés sur la figure 1. 
+
+\subparagraph{}
+\textit{Déterminer par une méthode graphique l'effort appliqué sur cette articulation lorsque la grue est en surcharge de 30\%.}
+
+\subparagraph{}
+\textit{Évaluer alors la pression de contact dans les paliers. }
+
+\subparagraph{}
+\textit{Effectuer la cotation fonctionnelle complète de l'ensemble des pièces constituants cette articulation (dimensions linéaires, défauts de forme et de position, états de surface).}
+
+
+\section*{Annexes}
+
+\subsection*{Couple transmissible par adhérence dans un embrayage à disque ou dans un frein}
+
+
+\begin{minipage}[c]{.3\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/embrayage}
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}[c]{.65\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/embrayage2}
+\end{center}
+\end{minipage}
+
+
+On donne $k$ la raideur des ressorts, $f$ le facteur de frottement entre les le disque et l'arbre moteur, $r$ le petit rayon de la couronne et $R$ le grand rayon de la couronne. Calculer le couple transmissible par adhérence entre l'arbre moteur et le disque. On fera l'hypothèse que l'action créée par les ressorts sur le plateau de compression est uniforme. 
+
+\textbf{Expression du couple infinitésimal : }$
+d\vectm{\text{Plateau}}{\text{Disque}}{O} =
+d\vectm{P}{D}{O} =  \vect{OM}\wedge d\vectf{P}{D}
+$
+
+\textbf{Expression de la résultante infinitésimale : } 
+$d\vectf{P}{D} = d\vect{N(P\rightarrow D)}+d\vect{T(P\rightarrow D)}$
+
+\textbf{Expression de l'effort normal : }
+$ d\vect{N(P\rightarrow D)} = p \vect{n} d\mathcal{S} = -p \vect{z} d\mathcal{S} $
+
+\textbf{Expression de l'unité de surface : }
+$ d\mathcal{S} = \rho d\theta d\rho $
+
+\textbf{Expression de l'effort tangentiel : } d'après le modèle de Coulomb, on commence par identifier le vecteur $\vectv{M}{D}{P}$.
+Le vecteur tangentiel est donc opposé à ce dernier. A la limite du glissement on a alors : 
+$$
+d\vect{T(P\rightarrow D)} = -f ||d\vect{N(P\rightarrow D)}|| \vect{v}    = fp d\mathcal{S}\vect{v}
+$$
+
+\textbf{Calcul final :} on note $\vect{OM}=\rho\vect{u}$ :
+
+\begin{eqnarray*}
+\vectm{O}{P}{D}  
+&=& d\vectm{O}{P}{D}  =  \int \vect{OM}\wedge d\vectf{P}{D} = \int \rho\vect{u} \wedge \left( d\vect{N(P\rightarrow D)}+d\vect{T(P\rightarrow D)} \right)\\
+&=& \int \rho\vect{u} \wedge \left( -p \vect{z} d\mathcal{S} +fp d\mathcal{S}\vect{v} \right) =  \iint p\rho\vect{v} d\mathcal{S} +\iint pf\rho  \vect{z}d\mathcal{S} \\
+& =& \iint p\rho\vect{v} \rho d\theta d\rho +\iint pf\rho  \vect{z}\rho d\theta d\rho \\
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\iint p\rho\vect{v} \rho d\theta d\rho &=& \iint p\rho\left(\cos\theta\vect{y}-\sin\theta\vect{x} \right) \rho d\theta d\rho =\iint p\rho\cos\theta\vect{y}  \rho d\theta d\rho-\iint p\rho \sin\theta\vect{x}  \rho d\theta d\rho \\
+&= &p \vect{y}  \int\limits_{r}^{R} \int\limits_{0}^{2\pi}\cos\theta d\theta \rho^2 d\rho- p\vect{x}\int\limits_{r}^{R} \int\limits_{0}^{2\pi} \sin\theta  \rho^2 d\theta d\rho = p \left[ \sin\theta\right]_{0}^{2\pi}\left[ \dfrac{1}{3}\rho^3\right]_{r}^{R}\vect{y}
+ -p \left[ -\cos\theta\right]_{0}^{2\pi}\left[ \dfrac{1}{3}\rho^3\right]_{r}^{R}\vect{x} = \vect{0}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\iint pf\rho^2 \vect{z} d\theta d\rho =
+pf \left[ \theta\right]_{0}^{2\pi}\left[ \dfrac{1}{3}\rho^3\right]_{r}^{R} \vect{z}
+= pf2\pi \dfrac{R^3-r^3}{3} 
+\end{eqnarray*} 
+
+Enfin, en notant $F_r$ l'effort (uniformément réparti) exercé par le ressort sur toute la couronne, on a donc :
+$$
+p=\dfrac{F_r}{\pi \left(R^2-r^2 \right)}
+$$
+
+Au final : 
+
+$$ \vectm{O}{P}{D}  
+= f\dfrac{2}{3} \dfrac{R^3-r^3}{R^2-r^2} F_r
+$$
+
+
+Le facteur de frottement ne dépend pas de la pression de contact entre deux solides.
+
+\begin{center}
+\begin{tabular}{|c||c|c||c|c|}
+\hline
+\multirow{2}{*}{Matériaux} 
+& \multicolumn{2}{c||}{Facteur d'adhérence} & \multicolumn{2}{c|}{Facteur de glissement} \\
+\cline{2-5}
+& Sec & Lubrifié & Sec & Lubrifié \\
+\hline
+\hline
+Acier / Acier & 0,2 à 0,3 & 0,15 à 0,2 & 0,2 & 0,12 \\ \hline
+Acier / Fonte & 0,2 & 0,12 à 0,2 & 0,15 & 0,08 \\ \hline
+Acier / Bronze & 0,2 & 0,15 à 0,2 & 0,2 & 0,12 \\ \hline
+Acier / Métal fritté &  & 0,1 à 0,18 & 0,1 à 0,12 & 0,03 à 0,06 \\ \hline
+Acier / Garniture de friction & 0,3 à 0,4 &  & 0,25 à 0,35 &  \\ \hline
+Acier / Graphite &  & 0,1 &  & 0,09 \\ \hline
+Acier / Palier PTFE & 0,08 à 0,4 &  & 0,02 à 0,08 & 0,003 à 0,05 \\ \hline
+Pneu neuf / Route & 1 & 0,6  & 0,5 à 0,6  & 0,2 à 0,5\\ \hline
+\end{tabular}
+\end{center}
+
+
+
+\subsection*{Esquisse du moteur hydraulique et du compte tours}
+
+\begin{center}
+\rotatebox{270}{\includegraphics[height=.95\textwidth]{images/MoteurHydraulique}}
+
+\rotatebox{270}{\includegraphics[height=.8\textwidth]{images/CompteTours}}
+\end{center}
+
+\subsection*{Roues libres Ringspann \url{http://www.ringspann.fr/}}
+
+
+\begin{center}
+\includegraphics[page=1,width=.95\textwidth]{images/rouelibre_Ringspann_01}
+
+\includegraphics[page=2,width=.95\textwidth]{images/rouelibre_Ringspann_01}
+
+\includegraphics[page=1,width=.95\textwidth]{images/rouelibre_Ringspann_02}
+
+\includegraphics[page=2,width=.95\textwidth]{images/rouelibre_Ringspann_02}
+\end{center}
+\end{document}
+
+
