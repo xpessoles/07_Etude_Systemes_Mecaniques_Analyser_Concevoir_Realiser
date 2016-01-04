@@ -1,0 +1,121 @@
+\documentclass[10pt,fleqn]{article} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={Cycle 5 : PPM},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+    
+\input{style/new_style}
+\input{style/macros_SII}
+
+\usepackage{multicol}
+\fichetrue
+%\fichefalse
+
+%\proftrue
+\proffalse
+
+\tdtrue
+%\tdfalse
+
+\courstrue
+\coursfalse
+
+\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+
+\def\classe{PTSI}
+\def\xxnumpartie{Cycle 5}
+\def\xxpartie{Produits -- Matériaux -- Procédés \\
+Analyser, Réaliser, Concevoir}
+
+\def\xxnumchapitre{Chapitres 1, 2, 3}
+\def\xxchapitre{}
+
+\def\xxtitreexo{Exercices d'application du cours}
+\def\xxsourceexo{\hspace{.2cm} }
+
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{20}
+\def\xxonglet{Cy. 5 -- Ch. 123}
+
+\def\xxactivite{Colle 1}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxcompetences{%
+\textsl{%
+%\textbf{Savoirs et compétences :}\\
+%%\noindent \textbf{Résoudre :} à partir des modèles retenus :
+%\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+%%\item %\textit{Rés -- C1.1 :} Loi entrée sortie géométrique et cinématique -- Fermeture géométrique.
+%\item Écrire le vecteur position, vitesse d’un point d’un solide.
+%\item Écrire le vecteur accélération d’un point d’un solide.
+%\end{itemize}
+%
+%\noindent \textit{Mod2 -- C4.1 :} Représentation par schéma bloc.
+}}
+
+\def\xxfigures{
+%\includegraphics[width=.8\textwidth]{images/prot_01}
+}%figues de la page de garde
+
+\def\xxpied{%
+Partie 5 -- Produits -- Matériaux -- Procédés  \\
+Ch. 1, 2 et 3 -- \xxactivite%
+}
+
+
+\setcounter{secnumdepth}{5}
+%---------------------------------------------------------------------------
+
+
+\begin{document}
+%\chapterimage{images/Fond_Cin}
+\input{style/new_pagegarde}
+\vspace{8cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+
+\section*{Matériaux et Procédés}
+\begin{multicols}{2}
+\subparagraph{}
+\textit{Donner le nom de 4 familles de matériaux}
+
+\subparagraph{}
+\textit{Donner la définition d’un acier et d’une fonte.}
+
+\subparagraph{}
+\textit{Donner le nom d’un critère de dureté. }
+
+
+\subparagraph{}
+\textit{Qu’est-ce que la résilience ? Par quel essai est-elle caractérisée ?}
+
+On donne ci-dessous les courbes d'un essai de traction. 
+\subparagraph{}
+\textit{Quelles doivent être l’abscisse et l’ordonnée d’un essai normalisé ?}
+
+\subparagraph{}
+\textit{Pour le StE 600 identifier la zone élastique et la zone plastique. }
+
+
+\subparagraph{}
+\textit{Pour le StE 600 donner la résistance élastique, la résistance maximale à la rupture et le module de Young.}
+
+\end{multicols}
+\begin{center}
+\includegraphics[width=.8\textwidth]{images/courbe}
+\end{center}
+%\newpage
+%\setcounter{exo}{0}
+%\section*{Matériaux et Procédés}
+%\begin{multicols}{2}
+%\end{multicols}
+
+\end{document}
+
+
